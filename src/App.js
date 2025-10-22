@@ -1,25 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+// import Nasro from './Nasro/Nasro';
+import Imad from './imad/imad';
+import Nasro from './Nasro/Nasro';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h2>Main App</h2>
+      <Nasro />
     </div>
   );
 }
+
 
 export default App;
