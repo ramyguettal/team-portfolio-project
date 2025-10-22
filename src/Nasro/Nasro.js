@@ -405,6 +405,7 @@ function Nasro() {
     <div className="App">
       <Navbar />
       <Hero />
+      
       <About />
       <Skills />
       <Projects />
