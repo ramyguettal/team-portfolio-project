@@ -155,6 +155,19 @@ input, button, textarea, select {
   color: #6d28d9; /* text-violet-700 */
 }
 
+.back-to-team-button {
+  background-color: #fef3c7; /* bg-amber-100 */
+  color: #d97706; /* text-amber-600 */
+  border: 1px solid #fbbf24; /* border-amber-400 */
+  font-weight: 600;
+}
+
+.back-to-team-button:hover {
+  background-color: #fde68a; /* hover:bg-amber-200 */
+  color: #b45309; /* hover:text-amber-700 */
+  transform: translateY(-1px);
+}
+
 /* === 6. Hero Section === */
 .hero {
   padding-top: 10rem;  /* Increased padding to account for larger mobile header */
@@ -524,7 +537,7 @@ input, button, textarea, select {
 };
 
 
-const Portfolio = () => {
+const Portfolio = ({ onBack }) => {
   const [activeSection, setActiveSection] = useState('');
   const [isHeaderCompact, setIsHeaderCompact] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -647,6 +660,15 @@ const Portfolio = () => {
 
             {/* Navigation */}
             <div className="nav-links">
+              {onBack && (
+                <button
+                  onClick={onBack}
+                  className="nav-button back-to-team-button"
+                  title="Back to Team"
+                >
+                  ← Back to Team
+                </button>
+              )}
               {['projects', 'studies', 'skills', 'contact'].map((section) => (
                 <button
                   key={section}
@@ -835,7 +857,7 @@ const Portfolio = () => {
                   type="text"
                   placeholder="Your Name"
                   value={formData.name}
-                  onChange={(e) => setFormData({...formData, name: e.g.target.value})}
+                  onChange={(e) => setFormData({...formData, name: e.target.value})}
                   className="form-input"
                   required
                 />
