@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 import './Nasro.css';
 
 // Navbar Component
-const Navbar = () => {
+const Navbar = ({ onBack }) => {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
@@ -39,6 +39,17 @@ const Navbar = () => {
 
   return (
     <nav className={scrolled ? 'scrolled' : ''}>
+      <div className="nav-left">
+        {onBack && (
+          <button 
+            className="back-button" 
+            onClick={onBack}
+            title="Back to Team"
+          >
+            ← Back to Team
+          </button>
+        )}
+      </div>
       <ul>
         {navItems.map(item => (
           <li key={item}>
@@ -400,10 +411,10 @@ const Footer = () => {
 };
 
 // Main App Component
-function Nasro() {
+function Nasro({ onBack }) {
   return (
     <div className="App">
-      <Navbar />
+      <Navbar onBack={onBack} />
       <Hero />
       
       <About />
