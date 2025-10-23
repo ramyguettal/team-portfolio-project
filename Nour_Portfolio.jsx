@@ -59,105 +59,11 @@ input, button, textarea, select {
   transition: all 0.3s ease-in-out;
 }
 
-/* === 5. Header & Navigation === */
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 50;
-  transition: all 0.3s ease-in-out;
-  padding: 1.5rem 0; /* py-6 */
-  background-color: transparent;
-}
-
-.header.is-compact {
-  background-color: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(24px); /* backdrop-blur-xl */
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); /* shadow-lg */
-  padding: 0.75rem 0; /* py-3 */
-}
-
-.header-container {
-  max-width: 1280px; /* max-w-7xl */
-  margin: 0 auto;
-  padding: 0 1.5rem; /* px-6 */
-}
-
-.header-nav {
-  display: flex;
-  flex-direction: column; /* Mobile first */
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem; /* gap-4 */
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem; /* gap-3 */
-}
-
-.logo-image {
-  border-radius: 9999px;
-  background-image: linear-gradient(to bottom right, #8b5cf6, #a855f7);
-  border: 4px solid #ffffff;
-  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); /* shadow-xl */
-  transition: all 0.3s ease-in-out;
-  width: 4rem; /* w-16 */
-  height: 4rem; /* h-16 */
-  background-size: cover;
-  background-position: center;
-}
-
-.logo-image.is-compact {
-  width: 3rem; /* w-12 */
-  height: 3rem; /* h-12 */
-}
-
-.logo-text h1 {
-  font-weight: 700;
-  transition: all 0.3s ease-in-out;
-  font-size: 1.25rem; /* text-xl */
-}
-.logo-text h1.is-compact {
-  font-size: 1.125rem; /* text-lg */
-}
-.logo-text p {
-  font-size: 0.875rem; /* text-sm */
-  color: #475569; /* text-slate-600 */
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem; /* gap-2 */
-}
-
-.nav-button {
-  padding: 0.5rem 1rem; /* px-4 py-2 */
-  border-radius: 0.5rem; /* rounded-lg */
-  font-weight: 500;
-  font-size: 0.875rem; /* text-sm */
-  transition: all 0.2s ease-in-out;
-  color: #475569; /* text-slate-600 */
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
-.nav-button:hover {
-  background-color: #f1f5f9; /* hover:bg-slate-100 */
-}
-.nav-button.is-active {
-  background-color: #ede9fe; /* bg-violet-100 */
-  color: #6d28d9; /* text-violet-700 */
-}
+/* Header removed */
 
 /* === 6. Hero Section === */
 .hero {
-  padding-top: 10rem;  /* Increased padding to account for larger mobile header */
+  padding-top: 5rem;  /* Reduced since no header */
   padding-bottom: 5rem; /* pb-20 (80px) */
   padding-left: 1.5rem; /* px-6 */
   padding-right: 1.5rem;
@@ -167,6 +73,18 @@ input, button, textarea, select {
   max-width: 1024px; /* max-w-5xl */
   margin: 0 auto;
   text-align: center;
+}
+
+.hero-profile-picture {
+  width: 8rem; /* w-32 */
+  height: 8rem; /* h-32 */
+  border-radius: 50%; /* rounded-full */
+  background-image: url('Nour.jpg');
+  background-size: cover;
+  background-position: center;
+  border: 4px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); /* shadow-lg */
+  margin-bottom: 2rem; /* mb-8 */
 }
 
 .hero-title {
@@ -472,11 +390,8 @@ input, button, textarea, select {
 
 /* Medium screens (tablets) */
 @media (min-width: 768px) {
-  .header-nav {
-    flex-direction: row;
-  }
   .hero {
-    padding-top: 8rem; /* pt-32 (128px) */
+    padding-top: 5rem; /* Reduced since no header */
   }
   .hero-title {
     font-size: 3rem; /* md:text-5xl */
@@ -507,6 +422,74 @@ input, button, textarea, select {
   }
   .footer-text {
     font-size: 1rem; /* md:text-base */
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .hero {
+    padding-top: 6rem; /* Reduce top padding for very small screens */
+    padding-bottom: 3rem;
+  }
+  .hero-title {
+    font-size: 1.875rem; /* text-3xl, smaller for tiny screens */
+  }
+  .hero-subtitle {
+    font-size: 1rem; /* text-base */
+    margin-bottom: 1.5rem;
+  }
+  .hero-cta-group {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr; /* Single column for very small screens */
+    gap: 0.75rem;
+  }
+  .stat-card {
+    padding: 1rem;
+  }
+  .stat-card-value {
+    font-size: 1.5rem;
+  }
+  .section-title {
+    font-size: 1.5rem;
+  }
+  .project-card {
+    padding: 1.5rem;
+  }
+  .project-title {
+    font-size: 1.125rem;
+  }
+  .studies-card {
+    padding: 1.5rem;
+  }
+  .studies-card p {
+    font-size: 0.875rem;
+  }
+  .skills-grid {
+    grid-template-columns: 1fr; /* Single column for very small screens */
+    gap: 0.75rem;
+  }
+  .skill-tag {
+    padding: 0.75rem;
+    font-size: 0.875rem;
+  }
+  .contact-card {
+    padding: 1.5rem;
+  }
+  .contact-intro {
+    font-size: 0.875rem;
+  }
+  .footer {
+    padding: 1.5rem 0;
+  }
+  .footer-text {
+    font-size: 0.75rem;
   }
 }
 
@@ -666,6 +649,7 @@ const Portfolio = () => {
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-container">
+          <div className="hero-profile-picture"></div>
           <h2 className="hero-title">
             Hello — I'm{' '}
             <span className="text-gradient-primary">
