@@ -1,4 +1,4 @@
-// App.js
+// Nasro.js
 import nasroImg from './assets/nasro.jpg';
 
 import React, { useState, useEffect } from 'react';
