@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Linkedin, Github, Code, Brain, Database, Cpu, Award, Briefcase, GraduationCap } from 'lucide-react';
 
-const PersonalPortfolio = () => {
+const PersonalPortfolio = ({ onBack }) => {
   const [activeSection, setActiveSection] = useState('about');
 
   const personalData = {
@@ -75,6 +75,34 @@ const PersonalPortfolio = () => {
         <div style={styles.maxWidth}>
           {/* Profile Card */}
           <div style={styles.profileCard}>
+            {onBack && (
+              <div style={styles.backButtonContainer}>
+                <button 
+                  style={{
+                    ...styles.backButton,
+                    ':hover': {
+                      background: '#f093fb',
+                      transform: 'translateY(-2px)',
+                      boxShadow: '0 4px 12px rgba(240, 147, 251, 0.4)',
+                    }
+                  }} 
+                  onClick={onBack}
+                  title="Back to Team"
+                  onMouseEnter={(e) => {
+                    e.target.style.background = '#f093fb';
+                    e.target.style.transform = 'translateY(-2px)';
+                    e.target.style.boxShadow = '0 4px 12px rgba(240, 147, 251, 0.4)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.background = 'rgba(240, 147, 251, 0.2)';
+                    e.target.style.transform = 'translateY(0)';
+                    e.target.style.boxShadow = 'none';
+                  }}
+                >
+                  ← Back to Team
+                </button>
+              </div>
+            )}
             <div style={styles.profileContent}>
               <img
                 src={personalData.avatar}
@@ -264,6 +292,25 @@ const styles = {
     marginBottom: '32px',
     border: '1px solid rgba(255, 255, 255, 0.2)',
     boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
+    position: 'relative',
+  },
+  backButtonContainer: {
+    position: 'absolute',
+    top: '16px',
+    right: '16px',
+    zIndex: 10,
+  },
+  backButton: {
+    background: 'rgba(240, 147, 251, 0.2)',
+    border: '1px solid rgba(240, 147, 251, 0.4)',
+    color: 'white',
+    padding: '8px 16px',
+    borderRadius: '20px',
+    cursor: 'pointer',
+    fontSize: '14px',
+    fontWeight: '600',
+    transition: 'all 0.3s ease',
+    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
   },
   profileContent: {
     display: 'flex',
