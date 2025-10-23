@@ -7,13 +7,12 @@ import { SkillsSection } from "./components/SkillsSection";
 import { ContactSection } from "./components/ContactSection";
 import { Footer } from "./components/Footer";
 
-export default function Mokhliss() {
+export default function Mokhliss({ onBack }) {
   // Image URLs from Unsplash
-
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <HeroSection />
+      <HeroSection onBack={onBack} />
       <AboutSection />
       <ExperienceSection />
       <ProjectsSection />

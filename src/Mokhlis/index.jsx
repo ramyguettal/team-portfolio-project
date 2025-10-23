@@ -2,7 +2,7 @@
 import Mokhliss from "./App.jsx";
 import "./index.css";
 
-export default function Mokhlis() {
-  return <Mokhliss/>
+export default function Mokhlis({ onBack }) {
+  return <Mokhliss onBack={onBack} />
 }
   

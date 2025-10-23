@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Code, Database, Shield, Zap, Server, GitBranch, Mail, Linkedin, Github, Menu, X, ChevronDown } from 'lucide-react';
 
-export default function Portfolio() {
+export default function Portfolio({ onBack }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
@@ -42,8 +42,19 @@ export default function Portfolio() {
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-slate-900/95 backdrop-blur-sm z-50 border-b border-blue-500/20">
         <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
-            KZ
+          <div className="flex items-center gap-4">
+            {onBack && (
+              <button
+                onClick={onBack}
+                className="flex items-center gap-2 px-3 py-2 text-sm bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/30 rounded-lg transition-all duration-300 hover:scale-105"
+                title="Back to Team"
+              >
+                ← Back to Team
+              </button>
+            )}
+            <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+              KZ
+            </div>
           </div>
           
           {/* Desktop Menu */}

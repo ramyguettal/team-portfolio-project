@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-// Import member components (assuming they exist)
+// Import member components
 import Nasro from '../Nasro/Nasro';
 import Imad from '../imad/imad';
-import Nour from '../Nour/Nour' ;
-// import Mokhlis from '../Mokhlis/Mokhlis';
+import Nour from '../Nour/Nour';
+import Mokhlis from '../Mokhlis/index';
 import Khaled from '../khaled/khaled';
 
 const TeamPage = () => {
@@ -12,12 +12,12 @@ const TeamPage = () => {
   const [currentView, setCurrentView] = useState('team'); // 'team' or member name
 
   const teamMembers = [
-    // {
-    //   id: 'guettal',
-    //   name: 'Guettal Mohamed Ramy',
-    //   role: 'Team Leader',
-    //   component: 'Guettal'
-    // },
+    {
+      id: 'guettal',
+      name: 'Guettal Mohamed Ramy',
+      role: 'Team Leader',
+      component: 'Guettal'
+    },
     {
       id: 'nasrellah',
       name: 'Nasrellah Kharroubi',
@@ -30,19 +30,18 @@ const TeamPage = () => {
       role: 'Team Member',
       component: 'Nour'
     },
-    // {
-    //   id: 'mokhlis',
-    //   name: 'Bouyahia Mokhlis Yacine',
-    //   role: 'Team Member',
-    //   component: 'Mokhlis'
-    // },
+    {
+      id: 'mokhlis',
+      name: 'Bouyahia Mokhlis Yacine',
+      role: 'Team Member',
+      component: 'Mokhlis'
+    },
     {
       id: 'imad',
       name: 'Imad Smail',
       role: 'Team Member',
       component: 'Imad'
-    }
-    ,
+    },
     {
       id: 'khaled',
       name: 'Zaabat Khaled',
@@ -67,35 +66,10 @@ const TeamPage = () => {
         return <Nasro onBack={handleBackToTeam} />;
       case 'imad':
         return <Imad onBack={handleBackToTeam} />;
-      // Add other member components as they become available
       case 'nour':
         return <Nour onBack={handleBackToTeam} />;
-        
-
       case 'mokhlis':
-        return <div style={{...containerStyle, justifyContent: 'center', alignItems: 'center'}}>
-          <div style={{textAlign: 'center', color: 'white'}}>
-            <h1>Bouyahia Mokhlis Yacine's Portfolio</h1>
-            <p>Coming Soon...</p>
-            <button 
-              onClick={handleBackToTeam}
-              style={{
-                background: 'rgba(255, 255, 255, 0.2)',
-                border: '1px solid rgba(255, 255, 255, 0.4)',
-                color: 'white',
-                padding: '12px 24px',
-                borderRadius: '25px',
-                cursor: 'pointer',
-                fontSize: '16px',
-                fontWeight: '600',
-                transition: 'all 0.3s ease',
-                marginTop: '20px'
-              }}
-            >
-              ← Back to Team
-            </button>
-          </div>
-        </div>;
+        return <Mokhlis onBack={handleBackToTeam} />;
       case 'khaled':
         return <Khaled onBack={handleBackToTeam} />;
       case 'guettal':
@@ -231,13 +205,6 @@ const TeamPage = () => {
     borderRadius: '15px'
   };
 
-  const responsiveStyle = {
-    '@media (max-width: 768px)': {
-      gridTemplateColumns: '1fr',
-      gap: '1rem',
-      padding: '0 0.5rem'
-    }
-  };
 
   // If we're viewing a specific member, render their component
   if (currentView !== 'team') {

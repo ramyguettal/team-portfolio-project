@@ -6,7 +6,7 @@ import portrait from "../assets/portrait.png";
 import { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 
-export function HeroSection() {
+export function HeroSection({ onBack }) {
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({ behavior: 'smooth' });
@@ -22,7 +22,7 @@ export function HeroSection() {
       setIndex((prev) => (prev + 1) % words.length);
     }, 2000); // change word every 2 seconds
     return () => clearInterval(interval);
-  }, []);
+  }, [words.length]);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -34,6 +34,25 @@ export function HeroSection() {
 
       {/* Geometric Shapes */}
       <GeometricShapes />
+
+      {/* Back Button */}
+      {onBack && (
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          className="absolute top-6 left-6 z-20"
+        >
+          <Button
+            onClick={onBack}
+            variant="outline"
+            className="bg-background/80 backdrop-blur-sm border-accent/20 hover:bg-accent/10 transition-all duration-300"
+            title="Back to Team"
+          >
+            ← Back to Team
+          </Button>
+        </motion.div>
+      )}
 
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-20 w-full">
