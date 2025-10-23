@@ -6,6 +6,7 @@ import Imad from '../imad/imad';
 import Nour from '../Nour/Nour';
 import Mokhlis from '../Mokhlis/index';
 import Khaled from '../khaled/khaled';
+import Guettal from '../Ramy/ramy';
 
 const TeamPage = () => {
   const [hoveredMember, setHoveredMember] = useState(null);
@@ -73,31 +74,7 @@ const TeamPage = () => {
       case 'khaled':
         return <Khaled onBack={handleBackToTeam} />;
       case 'guettal':
-        return <div style={{...containerStyle, justifyContent: 'center', alignItems: 'center'}}>
-          <div style={{textAlign: 'center', color: 'white'}}>
-            <h1>Guettal Mohamed Ramy's Portfolio</h1>
-            <p>Team Leader - Coming Soon...</p>
-            <button 
-              onClick={handleBackToTeam}
-              style={{
-                background: 'rgba(255, 255, 255, 0.2)',
-                border: '1px solid rgba(255, 255, 255, 0.4)',
-                color: 'white',
-                padding: '12px 24px',
-                borderRadius: '25px',
-                cursor: 'pointer',
-                fontSize: '16px',
-                fontWeight: '600',
-                transition: 'all 0.3s ease',
-                marginTop: '20px'
-              }}
-            >
-              ← Back to Team
-            </button>
-          </div>
-        </div>;
-      default:
-        return null;
+        return <Guettal onBack={handleBackToTeam} />;
     }
   };
 
