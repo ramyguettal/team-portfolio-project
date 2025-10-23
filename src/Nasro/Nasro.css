@@ -44,6 +44,36 @@ nav.scrolled {
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
 }
 
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.back-button {
+  background: rgba(91, 91, 240, 0.2);
+  border: 1px solid var(--accent-color);
+  color: var(--text-color);
+  padding: 0.6rem 1.2rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.back-button:hover {
+  background: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(91, 91, 240, 0.3);
+}
+
 nav ul {
   list-style: none;
   display: flex;
