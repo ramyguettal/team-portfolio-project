@@ -3,21 +3,21 @@ import React, { useState } from 'react';
 // Import member components (assuming they exist)
 import Nasro from '../Nasro/Nasro';
 import Imad from '../imad/imad';
-// import Nour from '../Nour/Nour';
+import Nour from '../Nour/Nour' ;
 // import Mokhlis from '../Mokhlis/Mokhlis';
-// import Khaled from '../Khaled/Khaled';
+import Khaled from '../khaled/khaled';
 
 const TeamPage = () => {
   const [hoveredMember, setHoveredMember] = useState(null);
   const [currentView, setCurrentView] = useState('team'); // 'team' or member name
 
   const teamMembers = [
-    {
-      id: 'guettal',
-      name: 'Guettal Mohamed Ramy',
-      role: 'Team Leader',
-      component: 'Guettal'
-    },
+    // {
+    //   id: 'guettal',
+    //   name: 'Guettal Mohamed Ramy',
+    //   role: 'Team Leader',
+    //   component: 'Guettal'
+    // },
     {
       id: 'nasrellah',
       name: 'Nasrellah Kharroubi',
@@ -30,18 +30,19 @@ const TeamPage = () => {
       role: 'Team Member',
       component: 'Nour'
     },
-    {
-      id: 'mokhlis',
-      name: 'Bouyahia Mokhlis Yacine',
-      role: 'Team Member',
-      component: 'Mokhlis'
-    },
+    // {
+    //   id: 'mokhlis',
+    //   name: 'Bouyahia Mokhlis Yacine',
+    //   role: 'Team Member',
+    //   component: 'Mokhlis'
+    // },
     {
       id: 'imad',
       name: 'Imad Smail',
       role: 'Team Member',
       component: 'Imad'
-    },
+    }
+    ,
     {
       id: 'khaled',
       name: 'Zaabat Khaled',
@@ -68,29 +69,9 @@ const TeamPage = () => {
         return <Imad onBack={handleBackToTeam} />;
       // Add other member components as they become available
       case 'nour':
-        return <div style={{...containerStyle, justifyContent: 'center', alignItems: 'center'}}>
-          <div style={{textAlign: 'center', color: 'white'}}>
-            <h1>Nour Tliba's Portfolio</h1>
-            <p>Coming Soon...</p>
-            <button 
-              onClick={handleBackToTeam}
-              style={{
-                background: 'rgba(255, 255, 255, 0.2)',
-                border: '1px solid rgba(255, 255, 255, 0.4)',
-                color: 'white',
-                padding: '12px 24px',
-                borderRadius: '25px',
-                cursor: 'pointer',
-                fontSize: '16px',
-                fontWeight: '600',
-                transition: 'all 0.3s ease',
-                marginTop: '20px'
-              }}
-            >
-              ← Back to Team
-            </button>
-          </div>
-        </div>;
+        return <Nour onBack={handleBackToTeam} />;
+        
+
       case 'mokhlis':
         return <div style={{...containerStyle, justifyContent: 'center', alignItems: 'center'}}>
           <div style={{textAlign: 'center', color: 'white'}}>
@@ -116,29 +97,7 @@ const TeamPage = () => {
           </div>
         </div>;
       case 'khaled':
-        return <div style={{...containerStyle, justifyContent: 'center', alignItems: 'center'}}>
-          <div style={{textAlign: 'center', color: 'white'}}>
-            <h1>Zaabat Khaled's Portfolio</h1>
-            <p>Coming Soon...</p>
-            <button 
-              onClick={handleBackToTeam}
-              style={{
-                background: 'rgba(255, 255, 255, 0.2)',
-                border: '1px solid rgba(255, 255, 255, 0.4)',
-                color: 'white',
-                padding: '12px 24px',
-                borderRadius: '25px',
-                cursor: 'pointer',
-                fontSize: '16px',
-                fontWeight: '600',
-                transition: 'all 0.3s ease',
-                marginTop: '20px'
-              }}
-            >
-              ← Back to Team
-            </button>
-          </div>
-        </div>;
+        return <Khaled onBack={handleBackToTeam} />;
       case 'guettal':
         return <div style={{...containerStyle, justifyContent: 'center', alignItems: 'center'}}>
           <div style={{textAlign: 'center', color: 'white'}}>
